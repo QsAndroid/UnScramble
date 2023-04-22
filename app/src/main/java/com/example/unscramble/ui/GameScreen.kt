@@ -9,6 +9,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -128,19 +129,27 @@ private fun FinalScoreDialog (
 
     AlertDialog(
 
-        onDismissRequest = { /*TODO*/ },
-        title = { },
-        text = { },
+        onDismissRequest = { /**/ },
+        title = { Text(stringResource(com.example.unscramble.R.string.congratulations))},
+        text = { Text(stringResource(com.example.unscramble.R.string.you_scored))},
         modifier = modifier,
         dismissButton = {
 
+                        TextButton(
+                            onClick = { activity.finish() }) {
+                            Text(text = stringResource(com.example.unscramble.R.string.exit))
+                        }
+        },
+        confirmButton = {
+
+            TextButton(
+                onClick = { onPlayAgain }) {
+                Text(text = stringResource(com.example.unscramble.R.string.play_again))
+            }
+
         }
 
-        ) {
-
-    }
-
-
+        )
 
 }
 
